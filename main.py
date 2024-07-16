@@ -4,7 +4,7 @@ import numpy as np
 
 from pyscript import display
 
-# First create the x and y coordinates of the points.
+"""# First create the x and y coordinates of the points.
 n_angles = 36
 n_radii = 8
 min_radius = 0.25
@@ -32,4 +32,14 @@ tpc = ax1.tripcolor(triang, z, shading='flat')
 fig1.colorbar(tpc)
 ax1.set_title('tripcolor of Delaunay triangulation, flat shading')
 
-display(fig1, target="mpl")
+display(fig1, target="mpl")"""
+
+
+
+fig, ax = plt.subplots()
+ax.plot([1, 2, 3], [4, 5, 6])
+display(fig, target="#space1")
+
+fig2, ax2 = plt.subplots()
+ax2.scatter([1, 2, 3], [7, 3, 6])
+display(fig2, target="#space2")
