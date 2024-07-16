@@ -36,10 +36,10 @@ display(fig1, target="mpl")"""
 
 
 
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(495/96, 295/96), dpi=96)
 ax.plot([1, 2, 3], [4, 5, 6])
 display(fig, target="#space1")
 
-fig2, ax2 = plt.subplots()
+fig2, ax2 = plt.subplots(figsize=(495/96, 295/96), dpi=96)
 ax2.scatter([1, 2, 3], [7, 3, 6])
 display(fig2, target="#space2")
