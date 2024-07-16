@@ -1,0 +1,35 @@
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>PyScript</title>
+        <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+        <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+        <py-env>
+            - matplotlib
+        </py-env>
+    </head>
+    <body>
+        <h1>Matplotlib</h1>
+        <py-script> Matplotlib line plot in the browser</py-script>
+        <div id="lineplot"></div>
+        <py-script output="lineplot">
+
+            import matplotlib.pyplot as plt
+            
+            fig, ax = plt.subplots()
+            
+            x_values = [16, 17, 18, 19, 20, 21]
+            y_values = [2, 3, 5, 7, 8, 10]
+
+            
+            plt.plot(x_values, y_values, marker='o', linestyle='--', color='g', label='Country 1')
+
+            plt.xlabel('x label')
+            plt.ylabel('y label')
+            plt.title('title')
+            
+            fig
+        </py-script>
+    </body>
+</html>
