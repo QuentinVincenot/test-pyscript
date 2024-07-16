@@ -1,21 +1,58 @@
-
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title>PyScript</title>
-        <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
-        <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
-        <py-env>
-            - matplotlib
-        </py-env>
+        <title>Matplotlib</title>
+        <meta charset="UTF-8"/>
+        <link rel="icon" type="image/x-icon" href="https://pyscript.net/examples/favicon.png" />
+        <link rel="stylesheet" href="https://pyscript.net/releases/2024.3.2/core.css"/>
+        <script defer src="https://pyscript.net/releases/2024.3.2/core.js"></script>
+        <link rel="stylesheet" href="https://pyscript.net/examples/assets/css/examples.css" />
+        <!-- This script tag bootstraps PyScript -->
+        <script type="module" src="https://pyscript.net/releases/2024.3.2/core.js"></script>
+        <!-- for splashscreen -->
+        <style>
+            #loading { outline: none; border: none; background: transparent }
+        </style>
+        <script type="module">
+            const loading = document.getElementById('loading');
+            addEventListener('py:ready', () => loading.close());
+            loading.showModal();
+        </script>
     </head>
     <body>
-        <h1>Matplotlib</h1>
-        <div id="lineplot"></div>
-        <py-script output="lineplot">
-            import matplotlib.pyplot as plt
-            plt.plot([1, 2, 3], [15, 12, 14])
-            plt.show()
-        </py-script>
+        <dialog id="loading">
+            <h1>Loading...</h1>
+        </dialog>
+        <section class="pyscript">
+            <div id="mpl"></div>
+
+            <py-tutor>
+                <py-config>
+                    packages = [
+                      "matplotlib"
+                    ]
+                </py-config>
+
+                <py-script>
+                    import matplotlib.pyplot as plt
+                    from pyscript import display
+                    fig, ax = plt.subplots()
+                    
+                    year_1 = [2016, 2017, 2018, 2019, 2020, 2021]
+                    population_1 = [42, 43, 45, 47, 48, 50]
+                    
+                    year_2 = [2016, 2017, 2018, 2019, 2020, 2021]
+                    population_2 = [43, 43, 44, 44, 45, 45]
+                    
+                    plt.plot(year_1, population_1, marker='o', linestyle='--', color='g', label='Country 1')
+                    plt.plot(year_2, population_2,  marker='d', linestyle='-', color='r', label='Country 2')
+                    
+                    plt.xlabel('Year')
+                    plt.ylabel('Population (M)')
+                    plt.title('Year vs Population')
+                    plt.legend(loc='lower right')
+
+                    display(fig, target="mpl")
+                </py-script>
+        </section>
     </body>
 </html>
