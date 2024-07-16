@@ -42,9 +42,13 @@
             display(now.strftime("%m/%d/%Y, %H:%M:%S"), target="#mydiv", append=False)
         </script>
 
-        <script type="py" config=".pyscript.toml">
+        <script type="py" config='{"packages":["matplotlib"]}'>
             from pyscript import display, document
             import matplotlib.pyplot as plt
+
+            fig, ax = plt.subplots()
+            ax.plot([1, 2, 3], [1, 2, 3])
+            display(fig, target="#mydiv", append=False)
         </script>
     </body>
 </html>
