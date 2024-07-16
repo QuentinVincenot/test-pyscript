@@ -36,12 +36,12 @@ display(fig1, target="mpl")"""
 
 
 
-fig, ax = plt.subplots(figsize=(10, 5))
+fig, ax = plt.subplots(figsize=(4.8, 2.8))
 ax.plot([1, 2, 3], [4, 5, 6])
+fig.patch.set_alpha(0.0)
 display(fig, target="#space1")
 
-fig2, ax2 = plt.subplots(figsize=(4, 2))
+fig2, ax2 = plt.subplots(figsize=(4.8, 2.8))
 ax2.scatter([1, 2, 3], [7, 3, 6])
-ax2.patch.set_facecolor('none')
-ax2.patch.set_alpha(0.05)
+fig2.patch.set_alpha(0.0)
 display(fig2, target="#space2")
